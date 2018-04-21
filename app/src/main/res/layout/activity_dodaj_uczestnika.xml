@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:hint="Enter imie"
+            android:hint="Wpisz imie uczestnika"
             android:inputType="text" />
 
         <EditText
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:hint="Enter your password"
+            android:hint="Wpisz nazwisko uczestnika"
             android:inputType="text" />
 
         <EditText
@@ -36,14 +36,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:hint="Enter Email"
+            android:hint="Wpisz email uczestnika"
             android:inputType="textEmailAddress" />
         <EditText
             android:id="@+id/editTextPasswordUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:hint="Enter Password"
+            android:hint="Podaj haslo dostepnu dla uczestnika"
             android:inputType="text" />
 
         <EditText

@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".EkranGlowny" />
         <activity android:name=".Ekran_glowny_przewodnik" />
         <activity android:name=".Dodaj_uczestnika" />
         <activity android:name=".Lista_Uczestnikow" />
