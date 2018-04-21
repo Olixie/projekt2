@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Przewodnik</string>
+    <string name="title_activity_ekran_glowny_przewodnika">EkranGlownyPrzewodnika</string>
+    <string name="mapa">Mapa</string>
+    <string name="plan_wycieczki">Plan Wycieczki</string>
+    <string name="zr_b_zdj_cie">Zrób Zdjęcie</string>
+    <string name="notatki">Notatki</string>
+    <string name="zaznacz_interesuj_ce_punkty">Zaznacz Interesujące Punkty</string>
+    <string name="wy_lij_komunikat">Wyślij Komunikat</string>
+    <string name="title_activity_ekran_gl">EkranGl</string>
+    <string name="galeria">Galeria</string>
+    <string name="uczestnicy">Uczestnicy</string>
+
+</resources>

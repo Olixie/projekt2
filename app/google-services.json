@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1016324895654",
+    "firebase_url": "https://projekt2-aa029.firebaseio.com",
+    "project_id": "projekt2-aa029",
+    "storage_bucket": "projekt2-aa029.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016324895654:android:b845772dab705aed",
+        "android_client_info": {
+          "package_name": "com.example.ola.przewodnik"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016324895654-fkict5claikjb839k1k95pd8m574lrtl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ola.przewodnik",
+            "certificate_hash": "bd541fce00d59c62376a61588b758e30b739e35c"
+          }
+        },
+        {
+          "client_id": "1016324895654-uc44ai2smqq9mk0ak74as674liiaa8fm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbRBUgUcSb34lfMvtjJAUsZwF22JBCSY4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016324895654-uc44ai2smqq9mk0ak74as674liiaa8fm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
