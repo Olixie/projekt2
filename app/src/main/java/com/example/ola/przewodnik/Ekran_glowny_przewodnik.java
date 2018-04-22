@@ -34,4 +34,9 @@ public class Ekran_glowny_przewodnik extends AppCompatActivity {
         Intent intencja = new Intent(this, Lista_Uczestnikow.class);
         startActivity(intencja);
     }
+
+    public void runMap (View view) {
+        Intent intencja = new Intent(this, MapsActivity.class);
+        startActivity(intencja);
+    }
 }

@@ -22,7 +22,8 @@
             android:id="@+id/b_mapa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mapa" />
+            android:text="Mapa"
+            android:onClick="runMap"/>
 
         <Button
             android:id="@+id/b_komunikat"

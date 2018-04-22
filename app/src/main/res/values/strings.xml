@@ -10,6 +10,7 @@
     <string name="title_activity_ekran_gl">EkranGl</string>
     <string name="galeria">Galeria</string>
     <string name="uczestnicy">Uczestnicy</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>
