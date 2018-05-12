@@ -2,22 +2,30 @@ package com.example.ola.przewodnik;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseListOptions;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Lista_Uczestnikow extends AppCompatActivity {
-    private DatabaseReference mDataBase;
-    private ListView listView;
-    private ArrayList<String> arrayList = new ArrayList<>();
-    private ArrayAdapter<String> adapter;
+
+
+
+    ListView lv;
+    FirebaseListAdapter adapterlist;
 
 
     @Override
@@ -25,42 +33,56 @@ public class Lista_Uczestnikow extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista__uczestnikow);
 
-        listView = (ListView) findViewById(R.id.database_list_view);
+        lv = (ListView) findViewById(R.id.listView);
 
-        mDataBase = FirebaseDatabase.getInstance().getReference();
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
+        Query query = FirebaseDatabase.getInstance().getReference().child("users");
 
-        mDataBase.addChildEventListener(new ChildEventListener() {
+        FirebaseListOptions<User> options = new FirebaseListOptions.Builder<User>()
+                .setLayout(R.layout.user)
+                .setQuery(query, User.class)
+                .build();
+
+        adapterlist = new FirebaseListAdapter(options){
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String string = dataSnapshot.getValue(String.class);
-                arrayList.add(string);
-                adapter.notifyDataSetChanged();
-            }
+            protected void populateView(View v, Object model, int position) {
+                //TextView userID = v.findViewById(R.id.userID);
+                TextView imie = v.findViewById(R.id.imie);
+                TextView nazwisko = v.findViewById(R.id.nazwisko);
+                TextView email = v.findViewById(R.id.email);
+                TextView phone = v.findViewById(R.id.phone);
+                TextView grupa = v.findViewById(R.id.grupa);
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                User std = (User) model;
 
-            }
+                // userID.setText(std.getUserID().toString());
+                imie.setText("Imie: " + std.getImie().toString());
+                nazwisko.setText("Nazwisko: "+ std.getNazwisko().toString());
+                email.setText("Email: "+ std.getNazwisko().toString());
+                phone.setText("Telefon: "+ std.getPhone().toString());
+                grupa.setText("Numer Grupy: "+std.getGrupa().toString());
 
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                String string = dataSnapshot.getValue(String.class);
-                arrayList.remove(string);
-                adapter.notifyDataSetChanged();
-            }
 
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
+        };
 
-        listView.setAdapter(this.adapter);
+        lv.setAdapter(adapterlist);
+
+
     }
+    @Override
+    protected void onStart(){
+        super.onStart();
+        adapterlist.startListening();
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        adapterlist.stopListening();
+    }
+
+
 }
+
+
