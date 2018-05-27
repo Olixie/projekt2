@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,9 +35,11 @@ public class Lista_Uczestnikow extends AppCompatActivity {
         setContentView(R.layout.activity_lista__uczestnikow);
 
         lv = (ListView) findViewById(R.id.listView);
-
+        //zmiana
+       // String currentuser = FirebaseAuth.getInstance().getUid();
+        //Integer a = Integer.valueOf(FirebaseDatabase.getInstance().getReference().child("przewodnik").child("grupa"));
+        //Query query = FirebaseDatabase.getInstance().getReference().child("users").orderByChild("grupa").equalTo("2");
         Query query = FirebaseDatabase.getInstance().getReference().child("users");
-
         FirebaseListOptions<User> options = new FirebaseListOptions.Builder<User>()
                 .setLayout(R.layout.user)
                 .setQuery(query, User.class)
