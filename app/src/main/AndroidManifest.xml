@@ -49,7 +49,8 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".Lista_Wycieczek" />
-        <activity android:name=".Plan_Wycieczki"></activity>
+        <activity android:name=".Plan_Wycieczki" />
+        <activity android:name=".Dodaj_notatke"></activity>
     </application>
 
 </manifest>

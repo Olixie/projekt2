@@ -43,4 +43,9 @@ public class Ekran_glowny_przewodnik extends AppCompatActivity {
         Intent intencja = new Intent(this, MapsActivity.class);
         startActivity(intencja);
     }
+
+    public void addNote (View view) {
+        Intent intencja = new Intent(this, Dodaj_notatke.class);
+        startActivity(intencja);
+    }
 }
