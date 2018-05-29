@@ -94,6 +94,7 @@
         android:layout_marginStart="16dp"
         android:background="@drawable/light_btn_border"
         android:drawableTop="@drawable/route"
+        android:onClick="showAparat"
         android:text="Zdjęcia"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -3,6 +3,9 @@
     package="com.example.ola.przewodnik">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -29,6 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".SignUpActivity" />
         <activity android:name=".Ekran_glowny_przewodnik" />
         <activity android:name=".Dodaj_uczestnika" />
@@ -50,7 +54,8 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".Lista_Wycieczek" />
         <activity android:name=".Plan_Wycieczki" />
-        <activity android:name=".Dodaj_notatke"></activity>
+        <activity android:name=".Dodaj_notatke" />
+        <activity android:name=".Zrob_Zdjecie"></activity>
     </application>
 
 </manifest>

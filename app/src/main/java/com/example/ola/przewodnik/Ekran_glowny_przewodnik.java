@@ -48,4 +48,8 @@ public class Ekran_glowny_przewodnik extends AppCompatActivity {
         Intent intencja = new Intent(this, Dodaj_notatke.class);
         startActivity(intencja);
     }
+    public void showAparat(View view){
+        Intent intencja = new Intent(this, Zrob_Zdjecie.class);
+        startActivity(intencja);
+    }
 }
