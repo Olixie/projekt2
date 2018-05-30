@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -32,7 +31,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".SignUpActivity" />
         <activity android:name=".Ekran_glowny_przewodnik" />
         <activity android:name=".Dodaj_uczestnika" />
@@ -55,7 +53,8 @@
         <activity android:name=".Lista_Wycieczek" />
         <activity android:name=".Plan_Wycieczki" />
         <activity android:name=".Dodaj_notatke" />
-        <activity android:name=".Zrob_Zdjecie"></activity>
+        <activity android:name=".Zrob_Zdjecie" />
+        <activity android:name=".Lista_notatek"></activity>
     </application>
 
 </manifest>

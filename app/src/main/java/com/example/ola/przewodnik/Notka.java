@@ -16,5 +16,19 @@ public class Notka {
       //  this.id = id;
     }
 
+    public String getTytul() {
+        return tytul;
+    }
 
+    public void setTytul(String tytul) {
+        this.tytul = tytul;
+    }
+
+    public String getTresc() {
+        return tresc;
+    }
+
+    public void setTresc(String tresc) {
+        this.tresc = tresc;
+    }
 }

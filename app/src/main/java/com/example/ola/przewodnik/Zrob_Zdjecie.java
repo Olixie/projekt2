@@ -65,7 +65,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
 //set the progress dialog
-        mProgress.setMessage("Envoi en cours...");
+        mProgress.setMessage("Przesyłanie zdjęcia...");
         mProgress.show();
 
 //get the camera image
