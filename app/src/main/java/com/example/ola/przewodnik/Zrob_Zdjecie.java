@@ -1,12 +1,16 @@
 package com.example.ola.przewodnik;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.media.Image;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,6 +43,9 @@ public class Zrob_Zdjecie extends AppCompatActivity {
 
     private ProgressDialog mProgress;
 
+    protected void makeRequest(){
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST_CODE);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +58,18 @@ public class Zrob_Zdjecie extends AppCompatActivity {
 
         mProgress = new ProgressDialog(this);
 
+        int permission = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA);
+        if (permission != PackageManager.PERMISSION_GRANTED){
+            makeRequest();
+        }
+
         mUploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intencja = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intencja, CAMERA_REQUEST_CODE);
+
+                   Intent intencja = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                   startActivityForResult(intencja, CAMERA_REQUEST_CODE);
+
             }
         });
     }
@@ -108,6 +122,8 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 
       }
+
+
   }}
 
 

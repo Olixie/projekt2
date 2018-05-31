@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -40,8 +41,12 @@ public class Ekran_glowny_przewodnik extends AppCompatActivity {
     }
 
     public void runMap (View view) {
-        Intent intencja = new Intent(this, MapsActivity.class);
-        startActivity(intencja);
+        try{Intent intencja = new Intent(this, MapsActivity.class);
+            startActivity(intencja);}
+            catch(Exception ex){
+                Toast.makeText(getApplicationContext(), "Brak pozwolenia", Toast.LENGTH_SHORT).show();
+
+            }
     }
 
     public void addNote (View view) {
