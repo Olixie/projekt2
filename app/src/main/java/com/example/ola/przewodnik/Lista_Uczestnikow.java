@@ -3,8 +3,10 @@ package com.example.ola.przewodnik;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
@@ -21,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lista_Uczestnikow extends AppCompatActivity {
+public class Lista_Uczestnikow extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 
 
@@ -33,13 +35,31 @@ public class Lista_Uczestnikow extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista__uczestnikow);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.grupy, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+
+
+
+    }
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String  grupa2 = parent.getItemAtPosition(position).toString();
+
 
         lv = (ListView) findViewById(R.id.listView);
         //zmiana
-       // String currentuser = FirebaseAuth.getInstance().getUid();
+        // String currentuser = FirebaseAuth.getInstance().getUid();
         //Integer a = Integer.valueOf(FirebaseDatabase.getInstance().getReference().child("przewodnik").child("grupa"));
-        //Query query = FirebaseDatabase.getInstance().getReference().child("users").orderByChild("grupa").equalTo("2");
-        Query query = FirebaseDatabase.getInstance().getReference().child("users");
+        Query query = FirebaseDatabase.getInstance().getReference().child("users").orderByChild("grupa").equalTo(grupa2);
+        //Query query = FirebaseDatabase.getInstance().getReference().child("users");
         FirebaseListOptions<User> options = new FirebaseListOptions.Builder<User>()
                 .setLayout(R.layout.user)
                 .setQuery(query, User.class)
@@ -70,18 +90,24 @@ public class Lista_Uczestnikow extends AppCompatActivity {
         };
 
         lv.setAdapter(adapterlist);
+        adapterlist.startListening();
+    }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
     @Override
     protected void onStart(){
         super.onStart();
-        adapterlist.startListening();
+
     }
 
     @Override
     protected void onStop(){
         super.onStop();
+
         adapterlist.stopListening();
     }
 
