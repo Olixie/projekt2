@@ -18,7 +18,7 @@
         android:background="@drawable/button_bg_rounded_corners"
         android:text="Zrób zdjęcie"
         android:textColor="#FFFFFF"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -114,4 +114,3 @@ public class Lista_Uczestnikow extends AppCompatActivity implements AdapterView.
 
 }
 
-
