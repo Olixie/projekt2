@@ -19,11 +19,6 @@ public class Ekran_glowny_przewodnik extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ekran_glowny_przewodnik);
-
-
-
-
-
     }
 
 
@@ -36,7 +31,7 @@ public class Ekran_glowny_przewodnik extends AppCompatActivity {
         startActivity(intencja);
     }
     public void showWycieczkaList(View view){
-        Intent intencja = new Intent(this, Lista_Wycieczek.class);
+        Intent intencja = new Intent(this, Plan_Wycieczki.class);
         startActivity(intencja);
     }
 

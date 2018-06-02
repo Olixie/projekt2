@@ -4,7 +4,10 @@ package com.example.ola.przewodnik;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
@@ -12,7 +15,7 @@ import com.firebase.ui.database.FirebaseListOptions;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-public class Plan_Wycieczki extends AppCompatActivity {
+public class Plan_Wycieczki extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     ListView lv;
     FirebaseListAdapter adapterlist;
 
@@ -22,9 +25,35 @@ public class Plan_Wycieczki extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan__wycieczki);
 
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.grupy, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+
+
+    }
+    @Override
+    protected void onStart(){
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        adapterlist.stopListening();
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String  grupa2 = parent.getItemAtPosition(position).toString();
         lv = (ListView) findViewById(R.id.listView);
-        Query query = FirebaseDatabase.getInstance().getReference().child("plan_wycieczki").orderByChild("grupa").equalTo("4");
-        //Query query = FirebaseDatabase.getInstance().getReference().child("plan_wycieczki");
+        Query query = FirebaseDatabase.getInstance().getReference().child("plan_wycieczki").orderByChild("grupa").equalTo(grupa2);
+        
         FirebaseListOptions<Plan> options = new FirebaseListOptions.Builder<Plan>()
                 .setLayout(R.layout.plan_wycieczki)
                 .setQuery(query, Plan.class)
@@ -91,16 +120,11 @@ public class Plan_Wycieczki extends AppCompatActivity {
         };
 
         lv.setAdapter(adapterlist);
-    }
-    @Override
-    protected void onStart(){
-        super.onStart();
         adapterlist.startListening();
     }
 
     @Override
-    protected void onStop(){
-        super.onStop();
-        adapterlist.stopListening();
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
