@@ -54,7 +54,16 @@
         <activity android:name=".Plan_Wycieczki" />
         <activity android:name=".Dodaj_notatke" />
         <activity android:name=".Zrob_Zdjecie" />
-        <activity android:name=".Lista_notatek"></activity>
+        <activity android:name=".Lista_notatek" />
+
+        <service android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".Dodaj_wiadomosc" />
+        <activity android:name=".Lista_wiadomosci"></activity>
     </application>
 
 </manifest>

@@ -23,7 +23,7 @@ public class Lista_notatek extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_notatek);
 
-        lv = (ListView) findViewById(R.id.listView2);
+        lv = (ListView) findViewById(R.id.listaNotatek);
 
         Query query = FirebaseDatabase.getInstance().getReference().child("notatki");
         FirebaseListOptions<Notka> options = new FirebaseListOptions.Builder<Notka>()

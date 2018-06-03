@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Przewodnik</string>
+    <string name="app_name">Rambler</string>
     <string name="title_activity_ekran_glowny_przewodnika">EkranGlownyPrzewodnika</string>
     <string name="mapa">Mapa</string>
     <string name="plan_wycieczki">Plan Wycieczki</string>
