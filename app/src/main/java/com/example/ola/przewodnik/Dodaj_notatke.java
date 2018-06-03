@@ -73,5 +73,9 @@ public class Dodaj_notatke extends AppCompatActivity  {
 
         }
     }
+    @Override
+    public void onBackPressed(){
+        this.startActivity(new Intent(getApplicationContext(), Ekran_glowny_przewodnik.class));
+    }
 }
 

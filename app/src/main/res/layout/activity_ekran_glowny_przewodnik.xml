@@ -4,36 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ekran_glowny_przewodnik"
-    android:background="#ffffff">
+    android:background="@drawable/backgr"
+    tools:context=".Ekran_glowny_przewodnik">
 
 
     <Button
         android:id="@+id/b_mapa"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_margin="20dp"
+        android:layout_marginStart="8dp"
         android:background="@drawable/light_btn_border"
         android:drawableTop="@drawable/map"
         android:onClick="runMap"
+        android:padding="25dp"
         android:text="Mapa"
+        app:layout_constraintBottom_toTopOf="@+id/b_plan"
+        app:layout_constraintEnd_toStartOf="@+id/b_komunikat"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/b_komunikat"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_margin="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/dark_btn_border"
         android:drawableTop="@drawable/envelop"
-        android:text="Wiadomości"
         android:onClick="showMessage"
+        android:padding="25dp"
+        android:text="Wiadomości"
+        app:layout_constraintBottom_toTopOf="@+id/b_lista"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/b_mapa"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,64 +48,66 @@
         android:id="@+id/b_plan"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_marginBottom="8dp"
+        android:layout_margin="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:background="@drawable/dark_btn_border"
-        android:drawableStart="@drawable/calendar"
+        android:drawableTop="@drawable/calendar"
         android:onClick="showWycieczkaList"
+        android:padding="25dp"
         android:text="Plan wycieczki"
         app:layout_constraintBottom_toTopOf="@+id/b_zdjecie"
         app:layout_constraintEnd_toStartOf="@+id/b_lista"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/b_mapa"
-        app:layout_constraintVertical_bias="0.478" />
+        app:layout_constraintTop_toBottomOf="@+id/b_mapa" />
 
     <Button
         android:id="@+id/b_notatki"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
+        android:layout_margin="20dp"
         android:background="@drawable/dark_btn_border"
         android:drawableTop="@drawable/notepad"
         android:onClick="showNotes"
+        android:padding="25dp"
         android:text="Notatki"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toEndOf="@+id/b_zdjecie" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_zdjecie"
+        app:layout_constraintTop_toBottomOf="@+id/b_lista" />
 
     <Button
         android:id="@+id/b_lista"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_margin="20dp"
         android:background="@drawable/light_btn_border"
         android:drawableTop="@drawable/people"
         android:onClick="showUserList"
+        android:padding="25dp"
         android:text="Uczestnicy"
         app:layout_constraintBottom_toTopOf="@+id/b_notatki"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/b_komunikat"
-        app:layout_constraintVertical_bias="0.478" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_plan"
+        app:layout_constraintTop_toBottomOf="@+id/b_komunikat" />
 
     <Button
         android:id="@+id/b_zdjecie"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginStart="16dp"
+        android:layout_margin="20dp"
         android:background="@drawable/light_btn_border"
         android:drawableTop="@drawable/route"
         android:onClick="showAparat"
+        android:padding="25dp"
         android:text="Zdjęcia"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/b_notatki"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b_plan" />
 
 
 </android.support.constraint.ConstraintLayout>

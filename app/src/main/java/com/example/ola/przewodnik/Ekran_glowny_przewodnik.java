@@ -1,6 +1,7 @@
 package com.example.ola.przewodnik;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ public class Ekran_glowny_przewodnik extends AppCompatActivity {
     //tworzenie listy wpisow
     private ArrayList<String> target;
     private ArrayAdapter adapter;
+    private boolean doubleBackToExitPressedOnce = false;
 
 
     @Override
@@ -61,5 +63,14 @@ public class Ekran_glowny_przewodnik extends AppCompatActivity {
     public void showMessage(View view){
         Intent intencja = new Intent(this, Lista_wiadomosci.class);
         startActivity(intencja);
+    }
+
+
+
+    @Override
+    public void onBackPressed(){
+        Toast.makeText(this, "Naciśnij ponownie aby wyjść", Toast.LENGTH_LONG).show();
+
+        this.startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
 }

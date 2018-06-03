@@ -63,7 +63,8 @@
         </service>
 
         <activity android:name=".Dodaj_wiadomosc" />
-        <activity android:name=".Lista_wiadomosci"></activity>
+        <activity android:name=".Lista_wiadomosci" />
+        <activity android:name=".GetLocation"></activity>
     </application>
 
 </manifest>

@@ -31,6 +31,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import android.Manifest;
 import android.view.View;
@@ -44,15 +46,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private GoogleApiClient client;
     private LocationRequest locationRequest;
+    DatabaseReference databaseReference;
 
     private Location lastLocation;
-    private Marker currentLocationMarker;
+    private Marker currentLocationMarker, guide;
     public static final int REQUEST_LOCATION_CODE = 99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
         {
@@ -68,25 +72,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode)
-            {
-                case REQUEST_LOCATION_CODE:
-                    if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+        {
+            case REQUEST_LOCATION_CODE:
+                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                {
+                    //permission granted
+                    if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
                     {
-                        //permission granted
-                        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+                        if(client == null)
                         {
-                            if(client == null)
-                            {
-                                buildGoogleApiCLient();
-                            }
-                            mMap.setMyLocationEnabled(true);
+                            buildGoogleApiCLient();
                         }
+                        mMap.setMyLocationEnabled(true);
+                    }
 
-                    }
-                    else //permission denied
-                    {
-                        Toast.makeText(this, "Permission Denied!", Toast.LENGTH_LONG).show();
-                    }
+                }
+                else //permission denied
+                {
+                    Toast.makeText(this, "Permission Denied!", Toast.LENGTH_LONG).show();
+                }
         }
     }
 
@@ -104,8 +108,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-            if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
-            {
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+        {
 
 
             buildGoogleApiCLient();
@@ -142,8 +146,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         markerOptions.position(latLng);
         markerOptions.title("Aktualna pozycja");
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
-
         currentLocationMarker = mMap.addMarker(markerOptions);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String lon = extras.getString("Longitude");
+            String lat = extras.getString("Latitude");
+
+            System.out.println("Lon: " + lon + " Lat: " + lat);
+
+            LatLng latLngGuide = new LatLng(Double.parseDouble(lat), Double.parseDouble(lon));
+            MarkerOptions markerOptions2 = new MarkerOptions();
+            markerOptions2.position(latLngGuide);
+            markerOptions2.title("Aktualna pozycja przewodnika");
+            markerOptions2.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
+            guide = mMap.addMarker(markerOptions2);
+
+            //The key argument here must match that used in the other activity
+        }
+
+
+
 
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng,15);
         mMap.animateCamera(cameraUpdate);
@@ -193,5 +216,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        this.startActivity(new Intent(getApplicationContext(), Ekran_glowny_przewodnik.class));
     }
 }

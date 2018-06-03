@@ -1,5 +1,6 @@
 package com.example.ola.przewodnik;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
@@ -29,6 +31,7 @@ public class Lista_Uczestnikow extends AppCompatActivity implements AdapterView.
 
     ListView lv;
     FirebaseListAdapter adapterlist;
+    private String lon, lan;
 
 
     @Override
@@ -49,6 +52,7 @@ public class Lista_Uczestnikow extends AppCompatActivity implements AdapterView.
     }
 
 
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String  grupa2 = parent.getItemAtPosition(position).toString();
@@ -59,6 +63,7 @@ public class Lista_Uczestnikow extends AppCompatActivity implements AdapterView.
         // String currentuser = FirebaseAuth.getInstance().getUid();
         //Integer a = Integer.valueOf(FirebaseDatabase.getInstance().getReference().child("przewodnik").child("grupa"));
         Query query = FirebaseDatabase.getInstance().getReference().child("users").orderByChild("grupa").equalTo(grupa2);
+
         //Query query = FirebaseDatabase.getInstance().getReference().child("users");
         FirebaseListOptions<User> options = new FirebaseListOptions.Builder<User>()
                 .setLayout(R.layout.user)
@@ -87,7 +92,39 @@ public class Lista_Uczestnikow extends AppCompatActivity implements AdapterView.
 
 
             }
+
+
         };
+        lv.setAdapter(adapterlist);
+        adapterlist.startListening();
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        lon ="14.5400964";
+                        lan = "53.4282337";
+                        showUser(lon, lan);
+
+                    case 1:
+                        lon ="14.536621";
+                        lan = "53.4305932";
+                        showUser(lon, lan);
+
+                    case 2:
+                        lon ="14.5350224";
+                        lan = "53.4322551";
+                        showUser(lon, lan);
+
+                    case 3:
+                        lon ="14.4912453";
+                        lan = "53.4479143";
+                        showUser(lon, lan);
+
+                }
+            }
+        });
 
         lv.setAdapter(adapterlist);
         adapterlist.startListening();
@@ -97,6 +134,9 @@ public class Lista_Uczestnikow extends AppCompatActivity implements AdapterView.
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+
+
 
     @Override
     protected void onStart(){
@@ -111,6 +151,22 @@ public class Lista_Uczestnikow extends AppCompatActivity implements AdapterView.
         adapterlist.stopListening();
     }
 
+
+    public void showMe(View view){
+        Intent intencja = new Intent(this, GetLocation.class);
+        startActivity(intencja);
+    }
+
+    public void showUser(String lon, String lan){
+        Intent intencja = new Intent(this, MapsActivity.class);
+        TextView textViewLo = (TextView) findViewById(R.id.lon);
+        //intencja.putExtra("Longitude", "14.5937644");
+        intencja.putExtra("Longitude",lon );
+        TextView textViewLa = (TextView) findViewById(R.id.lat);
+        //intencja.putExtra("Longitude", "53.4682782");
+        intencja.putExtra("Latitude", lan);
+        startActivity(intencja);
+    }
 
 }
 

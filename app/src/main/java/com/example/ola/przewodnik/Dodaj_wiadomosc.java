@@ -1,5 +1,6 @@
 package com.example.ola.przewodnik;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -63,5 +64,10 @@ public class Dodaj_wiadomosc extends AppCompatActivity {
 
 
         }
+    }
+
+    @Override
+    public void onBackPressed(){
+        this.startActivity(new Intent(getApplicationContext(), Ekran_glowny_przewodnik.class));
     }
 }
