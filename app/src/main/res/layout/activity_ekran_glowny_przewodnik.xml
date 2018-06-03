@@ -99,7 +99,7 @@
         android:layout_height="160dp"
         android:layout_margin="20dp"
         android:background="@drawable/light_btn_border"
-        android:drawableTop="@drawable/route"
+        android:drawableTop="@drawable/camera"
         android:onClick="showAparat"
         android:padding="25dp"
         android:text="Zdjęcia"
