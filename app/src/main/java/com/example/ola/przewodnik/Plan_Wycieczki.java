@@ -90,28 +90,28 @@ public class Plan_Wycieczki extends AppCompatActivity implements AdapterView.OnI
                 Plan std = (Plan) model;
 
                 // userID.setText(std.getUserID().toString());
-                nazwa.setText("Nazwa: " + std.getNazwa().toString());
-                grupa.setText("Grupa: "+ std.getGrupa().toString());
-                dzien1.setText("Dzień 1: "+ std.getDzien1().toString());
-                time1.setText("Godzina: "+ std.getTime1().toString());
-                pkt1.setText("Punkt nr. 1 Wycieczki: "+std.getPkt1().toString());
-                opispkt1.setText("Opis: "+std.getOpispkt1().toString());
-                time2.setText("Godzina: "+ std.getTime2().toString());
-                pkt2.setText("Punkt nr. 2 Wycieczki: "+std.getPkt2().toString());
-                opispkt2.setText("Opis: "+std.getOpispkt2().toString());
-                time3.setText("Godzina: "+ std.getTime3().toString());
-                pkt3.setText("Punkt nr. 3 Wycieczki: "+std.getPkt3().toString());
-                opispkt3.setText("Opis: "+std.getOpispkt3().toString());
-                dzien2.setText("Dzień 2: "+ std.getDzien2().toString());
-                d2time1.setText("Godzina: "+ std.getD2time1().toString());
-                d2pkt1.setText("Punkt nr. 1 Wycieczki: "+std.getD2pkt1().toString());
-                d2opispkt1.setText("Opis: "+std.getD2opispkt1().toString());
-                d2time2.setText("Godzina: "+ std.getD2time2().toString());
-                d2pkt2.setText("Punkt nr. 2 Wycieczki: "+std.getD2pkt2().toString());
-                d2opispkt2.setText("Opis: "+std.getD2opispkt2().toString());
-                d2time3.setText("Godzina: "+ std.getD2time3().toString());
-                d2pkt3.setText("Punkt nr. 3 Wycieczki: "+std.getD2pkt3().toString());
-                d2opispkt3.setText("Opis: "+std.getD2opispkt3().toString());
+                nazwa.setText(std.getNazwa().toString());
+                grupa.setText("   Grupa "+ std.getGrupa().toString());
+                dzien1.setText(std.getDzien1().toString());
+                time1.setText(std.getTime1().toString());
+                pkt1.setText(std.getPkt1().toString());
+                opispkt1.setText(std.getOpispkt1().toString());
+                time2.setText(std.getTime2().toString());
+                pkt2.setText(std.getPkt2().toString());
+                opispkt2.setText(std.getOpispkt2().toString());
+                time3.setText(std.getTime3().toString());
+                pkt3.setText(std.getPkt3().toString());
+                opispkt3.setText(std.getOpispkt3().toString());
+                dzien2.setText(std.getDzien2().toString());
+                d2time1.setText( std.getD2time1().toString());
+                d2pkt1.setText(std.getD2pkt1().toString());
+                d2opispkt1.setText(std.getD2opispkt1().toString());
+                d2time2.setText(std.getD2time2().toString());
+                d2pkt2.setText(std.getD2pkt2().toString());
+                d2opispkt2.setText(std.getD2opispkt2().toString());
+                d2time3.setText(std.getD2time3().toString());
+                d2pkt3.setText(std.getD2pkt3().toString());
+                d2opispkt3.setText(std.getD2opispkt3().toString());
 
 
 

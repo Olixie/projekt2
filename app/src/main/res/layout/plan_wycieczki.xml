@@ -1,105 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
     android:orientation="vertical"
     android:padding="20dp"
-    android:layout_margin="10dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:background="@drawable/background_plan"
+    >
+
+    <TableRow
+        android:id="@+id/nagłówek"
+        android:background="@drawable/field_nadawca"
+        android:minHeight="50dp">
+
+        <TextView
+
+            android:id="@+id/nazwa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:paddingTop="15dp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDark" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimaryDark"
-        android:textAllCaps="false"
-        android:id="@+id/nazwa"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/grupa"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
-        android:textAllCaps="true"
-        android:id="@+id/dzien1"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/time1"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pkt1"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/opispkt1"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/time2"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pkt2"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/opispkt2"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/time3"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pkt3"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/opispkt3"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
-        android:textAllCaps="true"
-        android:id="@+id/dzien2"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/d2time1"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/d2pkt1"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/d2opispkt1"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/d2time2"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/d2pkt2"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/d2opispkt2"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/d2time3"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/d2pkt3"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/d2opispkt3"/>
+        <TextView
 
-</LinearLayout>
+            android:id="@+id/grupa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:paddingRight="15dp"
+            android:paddingTop="15dp"
+            android:textSize="14sp" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/dzień1"
+        android:layout_height="50dp">
+
+
+        <TextView
+            android:id="@+id/dzien1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+    </TableRow>
+
+    <TableRow>
+
+
+        <TextView
+            android:id="@+id/pkt1"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/time1"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:textStyle="bold"/>
+
+    </TableRow>
+
+    <TableRow android:id="@+id/opd1pkt1"
+
+        >
+
+        <TextView
+            android:id="@+id/opispkt1"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:background="@drawable/item_show"
+            android:paddingBottom="10dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/pkt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/time2"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:textStyle="bold"/>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/opispkt2"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:background="@drawable/item_show"
+            android:paddingLeft="15dp" />
+        />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/pkt3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:textStyle="bold"/>
+
+
+        <TextView
+            android:id="@+id/time3"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:textStyle="bold"/>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/opispkt3"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:background="@drawable/item_show"
+            android:paddingLeft="15dp" />
+
+    </TableRow>
+
+
+    <TableRow>
+
+
+        <TextView
+            android:id="@+id/dzien2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/d2pkt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/d2time1"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:textStyle="bold"/>
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/d2opispkt1"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:background="@drawable/item_show"
+            android:paddingLeft="15dp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/d2pkt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/d2time2"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:textStyle="bold"/>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/d2opispkt2"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:background="@drawable/item_show"
+            android:paddingLeft="15dp" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/d2pkt3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/d2time3"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:textStyle="bold"/>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/d2opispkt3"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:background="@drawable/item_show"
+            android:paddingLeft="15dp" />
+    </TableRow>
+
+
+</TableLayout>
