@@ -1,5 +1,6 @@
 package com.example.ola.przewodnik;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
@@ -39,10 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        super.onCreate(savedInstanceState);
+       super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         login = (Button) findViewById(R.id.buttonLogin);
 

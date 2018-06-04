@@ -22,7 +22,7 @@ public class Lista_wiadomosci extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_wiadomosci);
 
-        lv = (ListView) findViewById(R.id.listaNotatek);
+        lv = (ListView) findViewById(R.id.listaWiadomosci);
 
         Query query = FirebaseDatabase.getInstance().getReference().child("wiadomosci");
         FirebaseListOptions<Wiadomosc> options = new FirebaseListOptions.Builder<Wiadomosc>()
@@ -34,14 +34,16 @@ public class Lista_wiadomosci extends AppCompatActivity {
             @Override
             protected void populateView(View v, Object model, int position) {
                 //TextView userID = v.findViewById(R.id.userID);
+                TextView nadawca = v.findViewById(R.id.odkogo);
                 TextView tytul = v.findViewById(R.id.tytulW);
                 TextView tresc = v.findViewById(R.id.trescW);
 
                 Wiadomosc std = (Wiadomosc) model;
 
                 // userID.setText(std.getUserID().toString());
-                tytul.setText("Tytuł: " + std.getTytulWiad().toString());
-                tresc.setText("Treść: "+ std.getTrescWiad().toString());
+                nadawca.setText(std.getOdbiorca().toString());
+                tytul.setText( std.getTytulWiad().toString());
+                tresc.setText(std.getTrescWiad().toString());
 
             }
         };

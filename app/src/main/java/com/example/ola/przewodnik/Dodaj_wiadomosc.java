@@ -29,7 +29,7 @@ public class Dodaj_wiadomosc extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         FirebaseMessaging.getInstance().subscribeToTopic("pushNotifications");
 
-        odbiorca_wiad = (EditText) findViewById(R.id.odbiorca);
+        odbiorca_wiad = (EditText) findViewById(R.id.nadawca);
         title_wiad = (EditText) findViewById(R.id.title_wiad);
         content_wiad = (EditText) findViewById(R.id.content_wiad);
         send = (Button) findViewById(R.id.buttonSend);

@@ -8,37 +8,31 @@ android:background="@drawable/backgr"
     tools:context=".Dodaj_notatke">
 
 
-
     <EditText
         android:id="@+id/title"
-        android:layout_width="260dp"
-        android:layout_height="50dp"
-        android:layout_margin="15dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/field_input_rounded_corners"
-        android:inputType="text"
+        android:layout_width="300dp"
+        android:layout_height="92dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/item_show"
+        android:inputType="textMultiLine"
+        android:textColor="@color/darkButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.72"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
     <EditText
         android:id="@+id/content"
-        android:layout_width="260dp"
-        android:layout_height="200dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/field_input_rounded_corners"
+        android:layout_width="296dp"
+        android:layout_height="240dp"
+
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="208dp"
+        android:background="@drawable/item_show"
         android:ems="10"
         android:inputType="textMultiLine"
-
+        android:textColor="@color/darkButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.675"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonDodaj"
@@ -53,11 +47,9 @@ android:background="@drawable/backgr"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.343"
+        app:layout_constraintEnd_toEndOf="@+id/content"
         app:layout_constraintStart_toStartOf="@+id/content"
-        app:layout_constraintTop_toBottomOf="@+id/content"
-        app:layout_constraintVertical_bias="0.302" />
+        app:layout_constraintTop_toBottomOf="@+id/content" />
 
     <TextView
         android:id="@+id/label_content"
@@ -72,8 +64,10 @@ android:background="@drawable/backgr"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/content"
         app:layout_constraintEnd_toStartOf="@+id/content"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/content" />
+        app:layout_constraintTop_toTopOf="@+id/content"
+        app:layout_constraintVertical_bias="0.515" />
 
     <TextView
         android:id="@+id/label_title"
@@ -88,7 +82,22 @@ android:background="@drawable/backgr"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/title"
         app:layout_constraintEnd_toStartOf="@+id/title"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/title" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/navbar"
+        android:minHeight="?attr/actionBarSize"
+        android:textAlignment="gravity"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Dodaj notatkę"
+        app:titleTextColor="#e3e5e8" />
 
 </android.support.constraint.ConstraintLayout>

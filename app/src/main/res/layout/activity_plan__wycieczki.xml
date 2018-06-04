@@ -4,50 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgr"
     tools:context=".Plan_Wycieczki">
 
     <ListView
         android:id="@+id/listView"
         android:layout_width="368dp"
-        android:layout_height="393dp"
+        android:layout_height="450dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="162dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="44dp"
-        android:layout_marginEnd="19dp"
+        android:layout_width="65dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintBottom_toTopOf="@+id/listView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.411"
         app:layout_constraintStart_toEndOf="@+id/wybor"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/toolbar7"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/wybor"
-        android:layout_width="160dp"
-        android:layout_height="37dp"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="201dp"
         android:layout_marginStart="84dp"
         android:layout_marginTop="8dp"
-        android:text="Wybierz grupę..."
+        android:text="Wybierz grupę"
+        android:textColor="@color/darkButton"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar7"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/navbar"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.809"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.202" />
+        app:title="Plan wycieczki"
+        app:titleTextColor="#e3e5e8" />
 
 </android.support.constraint.ConstraintLayout>

@@ -23,7 +23,7 @@ public class Lista_notatek extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_notatek);
 
-        lv = (ListView) findViewById(R.id.listaNotatek);
+        lv = (ListView) findViewById(R.id.listaWiadomosci);
 
         Query query = FirebaseDatabase.getInstance().getReference().child("notatki");
         FirebaseListOptions<Notka> options = new FirebaseListOptions.Builder<Notka>()
@@ -41,8 +41,8 @@ public class Lista_notatek extends AppCompatActivity {
                 Notka std = (Notka) model;
 
                 // userID.setText(std.getUserID().toString());
-                tytul.setText("Tytuł: " + std.getTytul().toString());
-                tresc.setText("Treść: "+ std.getTresc().toString());
+                tytul.setText(std.getTytul().toString());
+                tresc.setText(std.getTresc().toString());
 
             }
         };

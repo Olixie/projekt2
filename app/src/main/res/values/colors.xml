@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#303f9f</color>
     <color name="colorAccent">#FF4081</color>
     <color name="darkButton">#0f208f</color>
+    <color name="navbar">#7BBDDD</color>
 </resources>

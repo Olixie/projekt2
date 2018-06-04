@@ -49,7 +49,6 @@ public class Lista_Wycieczek extends AppCompatActivity {
                 TextView dataR = v.findViewById(R.id.dataR);
                 TextView dataZ = v.findViewById(R.id.dataZ);
                 TextView grupa = v.findViewById(R.id.grupa);
-                TextView przewodnikID = v.findViewById(R.id.przewodnikID);
                 TextView opis = v.findViewById(R.id.opis);
 
                 wycieczka std = (wycieczka) model;
@@ -59,7 +58,6 @@ public class Lista_Wycieczek extends AppCompatActivity {
                 dataR.setText("Data rozpoczęcia wycieczki: "+ std.getDataR().toString());
                 dataZ.setText("Data zakończenia wycieczki: "+ std.getDataZ().toString());
                 grupa.setText("Numer Grupy: "+ std.getGrupa().toString());
-                przewodnikID.setText("Przewodnik: "+std.getPrzewodnikID().toString());
                 opis.setText("Opis: "+ std.getOpis().toString());
 
 
